@@ -1,62 +1,225 @@
-# Capacitor Plugins
+# @capacitor/geolocation
 
-This repository contains the official Capacitor plugins maintained by the Capacitor team. You can find more plugins in the [Capacitor Community](https://github.com/capacitor-community/).
+The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.
 
-> ### :rotating_light: These plugins are for Capacitor 6 :rotating_light:
->
-> Capacitor 2 core plugins are bundled with Capacitor itself.
->
-> For Capacitor 3, use the 1.x version of the plugins.
-> For Capacitor 4, use the 4.x version of the plugins.
-> For Capacitor 5, use the 5.x version of the plugins.
+## Install
 
-## Plugins
+```bash
+npm install @capacitor/geolocation
+npx cap sync
+```
 
-| Package | Source | Version |
-| --- | --- | --- |
-| [`@capacitor/action-sheet`](https://capacitorjs.com/docs/apis/action-sheet) | [`./action-sheet`](./action-sheet) | [![npm badge](https://img.shields.io/npm/v/@capacitor/action-sheet?style=flat-square)](https://www.npmjs.com/package/@capacitor/action-sheet)
-| [`@capacitor/app-launcher`](https://capacitorjs.com/docs/apis/app-launcher) | [`./app-launcher`](./app-launcher) | [![npm badge](https://img.shields.io/npm/v/@capacitor/app-launcher?style=flat-square)](https://www.npmjs.com/package/@capacitor/app-launcher)
-| [`@capacitor/app`](https://capacitorjs.com/docs/apis/app) | [`./app`](./app) | [![npm badge](https://img.shields.io/npm/v/@capacitor/app?style=flat-square)](https://www.npmjs.com/package/@capacitor/app)
-| [`@capacitor/browser`](https://capacitorjs.com/docs/apis/browser) | [`./browser`](./browser) | [![npm badge](https://img.shields.io/npm/v/@capacitor/browser?style=flat-square)](https://www.npmjs.com/package/@capacitor/browser)
-| [`@capacitor/camera`](https://capacitorjs.com/docs/apis/camera) | [`./camera`](./camera) | [![npm badge](https://img.shields.io/npm/v/@capacitor/camera?style=flat-square)](https://www.npmjs.com/package/@capacitor/camera)
-| [`@capacitor/clipboard`](https://capacitorjs.com/docs/apis/clipboard) | [`./clipboard`](./clipboard) | [![npm badge](https://img.shields.io/npm/v/@capacitor/clipboard?style=flat-square)](https://www.npmjs.com/package/@capacitor/clipboard)
-| [`@capacitor/device`](https://capacitorjs.com/docs/apis/device) | [`./device`](./device) | [![npm badge](https://img.shields.io/npm/v/@capacitor/device?style=flat-square)](https://www.npmjs.com/package/@capacitor/device)
-| [`@capacitor/dialog`](https://capacitorjs.com/docs/apis/dialog) | [`./dialog`](./dialog) | [![npm badge](https://img.shields.io/npm/v/@capacitor/dialog?style=flat-square)](https://www.npmjs.com/package/@capacitor/dialog)
-| [`@capacitor/filesystem`](https://capacitorjs.com/docs/apis/filesystem) | [`./filesystem`](./filesystem) | [![npm badge](https://img.shields.io/npm/v/@capacitor/filesystem?style=flat-square)](https://www.npmjs.com/package/@capacitor/filesystem)
-| [`@capacitor/geolocation`](https://capacitorjs.com/docs/apis/geolocation) | [`./geolocation`](./geolocation) | [![npm badge](https://img.shields.io/npm/v/@capacitor/geolocation?style=flat-square)](https://www.npmjs.com/package/@capacitor/geolocation)
-| [`@capacitor/haptics`](https://capacitorjs.com/docs/apis/haptics) | [`./haptics`](./haptics) | [![npm badge](https://img.shields.io/npm/v/@capacitor/haptics?style=flat-square)](https://www.npmjs.com/package/@capacitor/haptics)
-| [`@capacitor/keyboard`](https://capacitorjs.com/docs/apis/keyboard) | [`./keyboard`](./keyboard) | [![npm badge](https://img.shields.io/npm/v/@capacitor/keyboard?style=flat-square)](https://www.npmjs.com/package/@capacitor/keyboard)
-| [`@capacitor/local-notifications`](https://capacitorjs.com/docs/apis/local-notifications) | [`./local-notifications`](./local-notifications) | [![npm badge](https://img.shields.io/npm/v/@capacitor/local-notifications?style=flat-square)](https://www.npmjs.com/package/@capacitor/local-notifications)
-| [`@capacitor/motion`](https://capacitorjs.com/docs/apis/motion) | [`./motion`](./motion) | [![npm badge](https://img.shields.io/npm/v/@capacitor/motion?style=flat-square)](https://www.npmjs.com/package/@capacitor/motion)
-| [`@capacitor/network`](https://capacitorjs.com/docs/apis/network) | [`./network`](./network) | [![npm badge](https://img.shields.io/npm/v/@capacitor/network?style=flat-square)](https://www.npmjs.com/package/@capacitor/network)
-| [`@capacitor/preferences`](https://capacitorjs.com/docs/apis/preferences) | [`./preferences`](./preferences) | [![npm badge](https://img.shields.io/npm/v/@capacitor/preferences?style=flat-square)](https://www.npmjs.com/package/@capacitor/preferences)
-| [`@capacitor/push-notifications`](https://capacitorjs.com/docs/apis/push-notifications) | [`./push-notifications`](./push-notifications) | [![npm badge](https://img.shields.io/npm/v/@capacitor/push-notifications?style=flat-square)](https://www.npmjs.com/package/@capacitor/push-notifications)
-| [`@capacitor/screen-orientation`](https://capacitorjs.com/docs/apis/screen-orientation) | [`./screen-orientation`](./screen-orientation) | [![npm badge](https://img.shields.io/npm/v/@capacitor/screen-orientation?style=flat-square)](https://www.npmjs.com/package/@capacitor/screen-orientation)
-| [`@capacitor/screen-reader`](https://capacitorjs.com/docs/apis/screen-reader) | [`./screen-reader`](./screen-reader) | [![npm badge](https://img.shields.io/npm/v/@capacitor/screen-reader?style=flat-square)](https://www.npmjs.com/package/@capacitor/screen-reader)
-| [`@capacitor/share`](https://capacitorjs.com/docs/apis/share) | [`./share`](./share) | [![npm badge](https://img.shields.io/npm/v/@capacitor/share?style=flat-square)](https://www.npmjs.com/package/@capacitor/share)
-| [`@capacitor/splash-screen`](https://capacitorjs.com/docs/apis/splash-screen) | [`./splash-screen`](./splash-screen) | [![npm badge](https://img.shields.io/npm/v/@capacitor/splash-screen?style=flat-square)](https://www.npmjs.com/package/@capacitor/splash-screen)
-| [`@capacitor/status-bar`](https://capacitorjs.com/docs/apis/status-bar) | [`./status-bar`](./status-bar) | [![npm badge](https://img.shields.io/npm/v/@capacitor/status-bar?style=flat-square)](https://www.npmjs.com/package/@capacitor/status-bar)
-| [`@capacitor/text-zoom`](https://capacitorjs.com/docs/apis/text-zoom) | [`./text-zoom`](./text-zoom) | [![npm badge](https://img.shields.io/npm/v/@capacitor/text-zoom?style=flat-square)](https://www.npmjs.com/package/@capacitor/text-zoom)
-| [`@capacitor/toast`](https://capacitorjs.com/docs/apis/toast) | [`./toast`](./toast) | [![npm badge](https://img.shields.io/npm/v/@capacitor/toast?style=flat-square)](https://www.npmjs.com/package/@capacitor/toast)
+## iOS
 
-## Independent Plugins
+Apple requires privacy descriptions to be specified in `Info.plist` for location information:
 
-These are official Capacitor plugins that are not contained in this repository.
+- `NSLocationWhenInUseUsageDescription` (`Privacy - Location When In Use Usage Description`)
 
-| GitHub | Package | Version |
-| --- | --- | --- |
-| [Background Runner](https://github.com/ionic-team/capacitor-background-runner) | [`@capacitor/background-runner`](https://capacitorjs.com/docs/apis/background-runner) | [![npm badge](https://img.shields.io/npm/v/@capacitor/background-runner?style=flat-square)](https://www.npmjs.com/package/@capacitor/background-runner) |
-| [Barcode Scanner](https://github.com/ionic-team/capacitor-barcode-scanner) | [`@capacitor/barcode-scanner`](https://capacitorjs.com/docs/apis/barcode-scanner) | [![npm badge](https://img.shields.io/npm/v/@capacitor/barcode-scanner?style=flat-square)](https://www.npmjs.com/package/@capacitor/barcode-scanner) |
-| [Google Maps](https://github.com/ionic-team/capacitor-google-maps) | [`@capacitor/google-maps`](https://capacitorjs.com/docs/apis/google-maps) | [![npm badge](https://img.shields.io/npm/v/@capacitor/google-maps?style=flat-square)](https://www.npmjs.com/package/@capacitor/google-maps) |
+Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) in the [iOS Guide](https://capacitorjs.com/docs/ios) for more information on setting iOS permissions in Xcode
 
-## Capacitor Labs
+## Android
 
-These are experimental plugins. Use at your own risk.
+This API requires the following permissions be added to your `AndroidManifest.xml`:
 
-| GitHub | Package | Version |
-| --- | --- | --- |
-| [Watch](https://github.com/ionic-team/CapacitorWatch) | [`@capacitor/watch`](https://capacitorjs.com/docs/apis/watch) | [![npm badge](https://img.shields.io/npm/v/@capacitor/watch?style=flat-square)](https://www.npmjs.com/package/@capacitor/watch) |
+```xml
+<!-- Geolocation API -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-feature android:name="android.hardware.location.gps" />
+```
 
-## Contributing
+The first two permissions ask for location data, both fine and coarse, and the last line is optional but necessary if your app _requires_ GPS to function. You may leave it out, though keep in mind that this may mean your app is installed on devices lacking GPS hardware.
 
-See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+Read about [Setting Permissions](https://capacitorjs.com/docs/android/configuration#setting-permissions) in the [Android Guide](https://capacitorjs.com/docs/android) for more information on setting Android permissions.
+
+### Variables
+
+This plugin will use the following project variables (defined in your app's `variables.gradle` file):
+
+- `playServicesLocationVersion` version of `com.google.android.gms:play-services-location` (default: `21.1.0`)
+
+## Example
+
+```typescript
+import { Geolocation } from '@capacitor/geolocation';
+
+const printCurrentPosition = async () => {
+  const coordinates = await Geolocation.getCurrentPosition();
+
+  console.log('Current position:', coordinates);
+};
+```
+
+## API
+
+<docgen-index>
+
+* [`getCurrentPosition(...)`](#getcurrentposition)
+* [`watchPosition(...)`](#watchposition)
+* [`clearWatch(...)`](#clearwatch)
+* [`checkPermissions()`](#checkpermissions)
+* [`requestPermissions(...)`](#requestpermissions)
+* [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
+
+</docgen-index>
+
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### getCurrentPosition(...)
+
+```typescript
+getCurrentPosition(options?: PositionOptions | undefined) => Promise<Position>
+```
+
+Get the current GPS location of the device
+
+| Param         | Type                                                        |
+| ------------- | ----------------------------------------------------------- |
+| **`options`** | <code><a href="#positionoptions">PositionOptions</a></code> |
+
+**Returns:** <code>Promise&lt;<a href="#position">Position</a>&gt;</code>
+
+**Since:** 1.0.0
+
+--------------------
+
+
+### watchPosition(...)
+
+```typescript
+watchPosition(options: PositionOptions, callback: WatchPositionCallback) => Promise<CallbackID>
+```
+
+Set up a watch for location changes. Note that watching for location changes
+can consume a large amount of energy. Be smart about listening only when you need to.
+
+| Param          | Type                                                                    |
+| -------------- | ----------------------------------------------------------------------- |
+| **`options`**  | <code><a href="#positionoptions">PositionOptions</a></code>             |
+| **`callback`** | <code><a href="#watchpositioncallback">WatchPositionCallback</a></code> |
+
+**Returns:** <code>Promise&lt;string&gt;</code>
+
+**Since:** 1.0.0
+
+--------------------
+
+
+### clearWatch(...)
+
+```typescript
+clearWatch(options: ClearWatchOptions) => Promise<void>
+```
+
+Clear a given watch
+
+| Param         | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| **`options`** | <code><a href="#clearwatchoptions">ClearWatchOptions</a></code> |
+
+**Since:** 1.0.0
+
+--------------------
+
+
+### checkPermissions()
+
+```typescript
+checkPermissions() => Promise<PermissionStatus>
+```
+
+Check location permissions.  Will throw if system location services are disabled.
+
+**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+
+**Since:** 1.0.0
+
+--------------------
+
+
+### requestPermissions(...)
+
+```typescript
+requestPermissions(permissions?: GeolocationPluginPermissions | undefined) => Promise<PermissionStatus>
+```
+
+Request location permissions.  Will throw if system location services are disabled.
+
+| Param             | Type                                                                                  |
+| ----------------- | ------------------------------------------------------------------------------------- |
+| **`permissions`** | <code><a href="#geolocationpluginpermissions">GeolocationPluginPermissions</a></code> |
+
+**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+
+**Since:** 1.0.0
+
+--------------------
+
+
+### Interfaces
+
+
+#### Position
+
+| Prop            | Type                                                                                                                                                                                | Description                                             | Since |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ----- |
+| **`timestamp`** | <code>number</code>                                                                                                                                                                 | Creation timestamp for coords                           | 1.0.0 |
+| **`coords`**    | <code>{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }</code> | The GPS coordinates along with the accuracy of the data | 1.0.0 |
+
+
+#### PositionOptions
+
+| Prop                     | Type                 | Description                                                                                                                                                                           | Default            | Since |
+| ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
+| **`enableHighAccuracy`** | <code>boolean</code> | High accuracy mode (such as GPS, if available) On Android 12+ devices it will be ignored if users didn't grant ACCESS_FINE_LOCATION permissions (can be checked with location alias). | <code>false</code> | 1.0.0 |
+| **`timeout`**            | <code>number</code>  | The maximum wait time in milliseconds for location updates. In Android, since version 4.0.0 of the plugin, timeout gets ignored for getCurrentPosition.                               | <code>10000</code> | 1.0.0 |
+| **`maximumAge`**         | <code>number</code>  | The maximum age in milliseconds of a possible cached position that is acceptable to return                                                                                            | <code>0</code>     | 1.0.0 |
+
+
+#### ClearWatchOptions
+
+| Prop     | Type                                              |
+| -------- | ------------------------------------------------- |
+| **`id`** | <code><a href="#callbackid">CallbackID</a></code> |
+
+
+#### PermissionStatus
+
+| Prop                 | Type                                                        | Description                                                                                                                                                                                                                                                                                                                                                        | Since |
+| -------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| **`location`**       | <code><a href="#permissionstate">PermissionState</a></code> | Permission state for location alias. On Android it requests/checks both ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION permissions. On iOS and web it requests/checks location permission.                                                                                                                                                                        | 1.0.0 |
+| **`coarseLocation`** | <code><a href="#permissionstate">PermissionState</a></code> | Permission state for coarseLocation alias. On Android it requests/checks ACCESS_COARSE_LOCATION. On Android 12+, users can choose between Approximate location (ACCESS_COARSE_LOCATION) or Precise location (ACCESS_FINE_LOCATION), so this alias can be used if the app doesn't need high accuracy. On iOS and web it will have the same value as location alias. | 1.2.0 |
+
+
+#### GeolocationPluginPermissions
+
+| Prop              | Type                                     |
+| ----------------- | ---------------------------------------- |
+| **`permissions`** | <code>GeolocationPermissionType[]</code> |
+
+
+### Type Aliases
+
+
+#### WatchPositionCallback
+
+<code>(position: <a href="#position">Position</a> | null, err?: any): void</code>
+
+
+#### CallbackID
+
+<code>string</code>
+
+
+#### PermissionState
+
+<code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
+
+
+#### GeolocationPermissionType
+
+<code>'location' | 'coarseLocation'</code>
+
+</docgen-api>
